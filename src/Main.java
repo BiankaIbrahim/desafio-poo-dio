@@ -1,7 +1,4 @@
-import br.com.dio.desafio.dominio.Bootcamp;
-import br.com.dio.desafio.dominio.Curso;
-import br.com.dio.desafio.dominio.Dev;
-import br.com.dio.desafio.dominio.Mentoria;
+import br.com.dio.desafio.dominio.*;
 
 import java.time.LocalDate;
 
@@ -22,6 +19,14 @@ public class Main {
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
 
+        Projeto projeto1 = new Projeto();
+        projeto1.setTitulo("Projeto OOP com java");
+        projeto1.setDescricao("Descrição projeto java ");
+
+        Projeto projeto2 = new Projeto();
+        projeto2.setTitulo("Projeto API com java");
+        projeto2.setDescricao("Descrição projeto API");
+
         /*System.out.println(curso1);
         System.out.println(curso2);
         System.out.println(mentoria);*/
@@ -32,6 +37,8 @@ public class Main {
         bootcamp.getConteudos().add(curso1);
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
+        bootcamp.getConteudos().add(projeto1);
+        bootcamp.getConteudos().add(projeto2);
 
         Dev devCamila = new Dev();
         devCamila.setNome("Camila");
@@ -39,6 +46,10 @@ public class Main {
         System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
         devCamila.progredir();
         devCamila.progredir();
+        devCamila.progredir();
+        devCamila.progredir();
+        devCamila.progredir();
+
         System.out.println("-");
         System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
         System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
@@ -53,6 +64,7 @@ public class Main {
         devJoao.progredir();
         devJoao.progredir();
         devJoao.progredir();
+
         System.out.println("-");
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
