@@ -14,22 +14,23 @@ public class Main {
         curso2.setDescricao("descrição curso js");
         curso2.setCargaHoraria(4);
 
+        Curso curso3 = new Curso();
+        curso3.setTitulo("curso Python");
+        curso3.setDescricao("descrição curso Python");
+        curso3.setCargaHoraria(8);
+
         Mentoria mentoria = new Mentoria();
         mentoria.setTitulo("mentoria de java");
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
 
-        Projeto projeto1 = new Projeto();
-        projeto1.setTitulo("Projeto OOP com java");
-        projeto1.setDescricao("Descrição projeto java ");
+        Projeto projetoJava = new Projeto();
+        projetoJava.setTitulo("Projeto OOP com java");
+        projetoJava.setDescricao("Descrição projeto OOP e seus pilares");
 
-        Projeto projeto2 = new Projeto();
-        projeto2.setTitulo("Projeto API com java");
-        projeto2.setDescricao("Descrição projeto API");
-
-        /*System.out.println(curso1);
-        System.out.println(curso2);
-        System.out.println(mentoria);*/
+        Projeto projetoPython = new Projeto();
+        projetoPython.setTitulo("Projeto OOP com Python");
+        projetoPython.setDescricao("Descrição projeto OOP e seus pilares");
 
         Bootcamp bootcamp = new Bootcamp();
         bootcamp.setNome("Bootcamp Java Developer");
@@ -37,11 +38,16 @@ public class Main {
         bootcamp.getConteudos().add(curso1);
         bootcamp.getConteudos().add(curso2);
         bootcamp.getConteudos().add(mentoria);
-        bootcamp.getConteudos().add(projeto1);
-        bootcamp.getConteudos().add(projeto2);
+        bootcamp.getConteudos().add(projetoJava);
+
+        Bootcamp bootcamp2 = new Bootcamp();
+        bootcamp2.setNome("Bootcamp Python Developer");
+        bootcamp2.setDescricao("Descrição Bootcamp Python Developer");
+        bootcamp2.getConteudos().add(curso3);
+        bootcamp2.getConteudos().add(projetoPython);
 
         Dev devCamila = new Dev();
-        devCamila.setNome("Camila");
+        devCamila.setNome("Camila Cavalcante");
         devCamila.inscreverBootcamp(bootcamp);
         System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
         devCamila.progredir();
@@ -50,26 +56,25 @@ public class Main {
         devCamila.progredir();
         devCamila.progredir();
 
-        System.out.println("-");
         System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
         System.out.println("Conteúdos Concluídos Camila:" + devCamila.getConteudosConcluidos());
-        System.out.println("XP:" + devCamila.calcularTotalXp());
+        System.out.println("Total de XP:" + devCamila.calcularTotalXp());
+        System.out.println(devCamila.gerarCertificado(bootcamp));
+        devCamila.inscreverBootcamp(bootcamp2);
+        System.out.println("Conteúdos Inscritos Camila:" + devCamila.getConteudosInscritos());
 
-        System.out.println("-------");
-
+        System.out.println("\n-----\n");
         Dev devJoao = new Dev();
-        devJoao.setNome("Joao");
+        devJoao.setNome("Joao Oliveira");
         devJoao.inscreverBootcamp(bootcamp);
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         devJoao.progredir();
         devJoao.progredir();
         devJoao.progredir();
 
-        System.out.println("-");
         System.out.println("Conteúdos Inscritos João:" + devJoao.getConteudosInscritos());
         System.out.println("Conteúdos Concluidos João:" + devJoao.getConteudosConcluidos());
-        System.out.println("XP:" + devJoao.calcularTotalXp());
-
+        System.out.println("Total de XP:" + devJoao.calcularTotalXp());
     }
 
 }

@@ -8,8 +8,12 @@ public class Dev {
     private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 
     public void inscreverBootcamp(Bootcamp bootcamp){
-        this.conteudosInscritos.addAll(bootcamp.getConteudos());
-        bootcamp.getDevsInscritos().add(this);
+        if(this.conteudosInscritos.isEmpty() == true){
+            this.conteudosInscritos.addAll(bootcamp.getConteudos());
+            bootcamp.getDevsInscritos().add(this);
+        }else{
+            System.err.println("\nVocê já está matriculado(a) em um bootcamp!\nPara se inscrever nesse bootcamp é necessário cancelar ou finalizar o bootcamp já cadastrado.");
+        }
     }
 
     public void progredir() {
@@ -37,7 +41,6 @@ public class Dev {
                 .sum();*/
     }
 
-
     public String getNome() {
         return nome;
     }
@@ -60,6 +63,18 @@ public class Dev {
 
     public void setConteudosConcluidos(Set<Conteudo> conteudosConcluidos) {
         this.conteudosConcluidos = conteudosConcluidos;
+    }
+
+    public String gerarCertificado(Bootcamp bootcamp) {
+        if (this.conteudosInscritos.isEmpty() == true) {
+            return "\n--------------------------------------------------" +
+                    "\n***  Certificado de Conclusão  ***\n" +
+                    "Certificamos que " + this.nome + " conclui com êxito o bootcamp: " +
+                    bootcamp.getNome() + "\ncom data inicial " + bootcamp.getDataInicial() + " e data final " + bootcamp.getDataFinal() +
+                    "\n-----------------------------------------------\n";
+        } else {
+            return "Você ainda não concluiu o bootcamp.";
+        }
     }
 
     @Override
